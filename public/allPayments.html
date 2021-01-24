@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>MercadoPago Payments Monitor</title>
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <div class="title-container">
+            <h1>All Payments - Approved & Rejected</h1>
+        </div>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <script>
+            var socket = io.connect('/');
+            socket.on('update', (arr) => {
+            paymentsAmount = arr;
+           
+            var labels = [];
+            var data = [];
+            
+            for (let i=0; i < paymentsAmount.length; i++) {
+                labels.push(paymentsAmount[i].newDate);
+                data.push(paymentsAmount[i].payments);
+            }
+            
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+                // The data for our dataset
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Amount of Payments',
+                        backgroundColor: '#48BEFF',
+                        borderColor: '#48BEFF',
+                        data: data
+                    }]
+                },
+                // Configuration options: Responsive & BeginAtZero
+                options: {
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        });
+        </script>
+    </body>
+</html>
