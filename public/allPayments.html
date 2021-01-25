@@ -8,6 +8,7 @@
     </head>
     <body>
         <div class="title-container">
+            <img src="./logo.png" alt="Icono Mercado Pago">
             <h1>All Payments - Approved & Rejected</h1>
         </div>
         <div class="chart-container">
@@ -19,13 +20,16 @@
             paymentsAmount = arr;
            
             var labels = [];
-            var data = [];
-            
+            var dataAll = [];
+            var dataRejected = [];
+    
             for (let i=0; i < paymentsAmount.length; i++) {
                 labels.push(paymentsAmount[i].newDate);
-                data.push(paymentsAmount[i].payments);
+                dataAll.push(paymentsAmount[i].allPayments);
+                dataRejected.push(paymentsAmount[i].rejectedPayments);
             }
             
+            var color = Chart.helpers.color;
             var ctx = document.getElementById('myChart').getContext('2d');
             var chart = new Chart(ctx, {
                 // The type of chart we want to create
@@ -34,11 +38,16 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'Amount of Payments',
-                        backgroundColor: '#48BEFF',
-                        borderColor: '#48BEFF',
-                        data: data
-                    }]
+                        label: 'Rejected Payments',
+                        backgroundColor: '#D1495B',
+                        borderColor: '#D1495B',
+                        data: dataRejected
+                    },{
+                        label: 'All Payments',
+                        backgroundColor: '#30638E',
+                        borderColor: '#30638E',
+                        data: dataAll
+                    },]
                 },
                 // Configuration options: Responsive & BeginAtZero
                 options: {

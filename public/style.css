@@ -7,7 +7,7 @@
 body {
     justify-content: center;
     align-items: center;
-    background: #edf6f9;
+    background-color: #E3E4DB;
     font-family: "Poppins", sans-serif;
     height: 100%;
     margin: 2% 10%; 
@@ -17,8 +17,13 @@ h1 {
     display: flex;
     align-items: center;
     color: #3d5a80;
-    font-size: 2em;
+    font-size: 1.5vw;
     text-align: center;
+}
+
+img {
+    width: 25%;
+    height: 25%;
 }
 
 .chart-container {
@@ -26,18 +31,18 @@ h1 {
     border-radius: 30px;
     padding: 0.1vh 5vh;
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
-    color: white;
+    background-color: white;
     position: relative;
 }
 
 .title-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     border-radius: 30px;
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
-    color: white;
+    background-color: white;
     margin: 40 auto;
-    width: 50%;
+    width: 60%;
 }
   
