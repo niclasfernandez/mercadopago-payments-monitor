@@ -7,15 +7,9 @@
         <script src="/socket.io/socket.io.js"></script>
     </head>
     <body>
-        <div class="title-container">
-            <img src="./logo.png" alt="Icono Mercado Pago">
-            <h1>All Payments - Approved & Rejected</h1>
-        </div>
-        <div class="chart-container">
-            <canvas id="myChart"></canvas>
-        </div>
         <script>
             var socket = io.connect('/');
+            var chart
             socket.on('update', (arr) => {
             paymentsAmount = arr;
            
@@ -31,7 +25,8 @@
             
             var color = Chart.helpers.color;
             var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, {
+            if (chart) {chart.destroy()}
+            window.chart = new Chart(ctx, {
                 // The type of chart we want to create
                 type: 'line',
                 // The data for our dataset
@@ -63,5 +58,12 @@
             });
         });
         </script>
+        <div class="title-container">
+            <img src="./logo.png" alt="Icono Mercado Pago">
+            <h1>All Payments - Approved & Rejected</h1>
+        </div>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
     </body>
 </html>
