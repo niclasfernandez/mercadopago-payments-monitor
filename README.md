@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-If you are testing local, you should be accessing it in `http://localhost:8080/allpayments`.
+If you are testing local, you should be accessing it in `http://localhost:3000/allpayments`.
 
 #### REMEMBER: 
 This service must be used just in internal infrastructure. Avoid exposing all payments information into a public server.

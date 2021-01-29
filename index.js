@@ -2,7 +2,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-var server = require('http').Server(app);
+// var server = require('http').Server(app);
+var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io')(server);
 var constants = require("./config");
 var utils = require("./utils");
@@ -64,5 +65,5 @@ app.get('/allpayments', function(req, res) {
     res.sendFile(path.join(__dirname, "public", "allPayments.html"));  
 });
 
-server.listen(8080);
-console.log("Listening port 8080");
+// server.listen(8080);
+console.log("Listening port 3000");

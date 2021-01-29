@@ -1,5 +1,5 @@
 // Array of Access_tokens (strings) of your MercadoPago Accounts
-let access_token = ["APP-XXXXXXXXX-XXXXXXXXX-XXXXXXXXX-XXXXXXXXX"];
+let access_token = ["APP-XXXXXXXXXXX-XXXXXXXXXX-XXXXXXXXX-XXXXXXX"];
 
 //CHART & API parameters
 //WARNING: If your rollUp is small and your chartWindows is really big. You will have problems in watching all data into chart.

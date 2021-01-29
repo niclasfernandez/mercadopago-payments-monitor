@@ -61,8 +61,8 @@ async function apiLoop() {
             rejectedPayments.push(responseRejected.data.paging.total);
         };
 
-        console.log("All Payments: " + allPayments);
-        console.log("Rejected Payments: " + rejectedPayments);
+        console.log("All Payments: [" + allPayments + "]");
+        console.log("Rejected Payments: [" + rejectedPayments + "]");
         return {allPayments: allPayments, rejectedPayments: rejectedPayments};
 
     } catch (error) {
